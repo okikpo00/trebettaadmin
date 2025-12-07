@@ -1,0 +1,18 @@
+/* src/css/Withdrawals.css */
+
+@import "./Deposits.css";
+
+.action-row {
+  display: flex;
+  gap: 6px;
+}
+
+.btn.success {
+  background: #16893a;
+  color: #fff;
+}
+
+.btn.danger {
+  background: #c53030;
+  color: #fff;
+}

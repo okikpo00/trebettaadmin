@@ -1,0 +1,27 @@
+/* Transactions page styling */
+.container { max-width:1200px; margin:24px auto; padding:0 16px; }
+
+.page-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.page-head h1 { margin:0; font-size:20px; }
+
+.table { width:100%; border-collapse:collapse; background:white; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+.table thead th { padding:12px 14px; background:#fbfafa; text-align:left; font-weight:600; color:#4b4444; }
+.table tbody td { padding:12px 14px; border-bottom:1px solid #f3f1f1; vertical-align:middle; }
+
+.row-actions { display:flex; gap:8px; }
+.action { background:transparent; border:1px solid transparent; padding:6px 10px; border-radius:8px; cursor:pointer; }
+
+.badge.success { background:#e6fbf0; color:#0a8a4a; padding:6px 8px; border-radius:999px; font-weight:600; }
+.badge.warn { background:#fff6e6; color:#b36b00; padding:6px 8px; border-radius:999px; }
+.badge.danger { background:#ffe9e9; color:#b40303; padding:6px 8px; border-radius:999px; }
+
+.modal-card .two-col { display:flex; justify-content:space-between; gap:18px; }
+.two-col > div { flex:1; }
+
+.meta { margin-top:14px; color:#6b6b6b; font-size:13px; }
+.muted { color:#6b6b6b; }
+
+@media (max-width: 880px) {
+  .modal-card .two-col { flex-direction:column; }
+}
+

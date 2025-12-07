@@ -1,0 +1,44 @@
+/* src/css/Shared.css */
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#6b6b6b;
+  --primary:#5a0b0b; /* oxblood */
+  --success:#0a7b0a;
+  --danger:#b32a2a;
+  --warn:#b36a00;
+  --card:#fff;
+  --border:#e6e6e6;
+  --radius:10px;
+  --gap:12px;
+  --container-max:1100px;
+}
+
+body { background:var(--bg); color:var(--text); font-family:Inter, system-ui, Arial, sans-serif; margin:0; padding:0; }
+.container { max-width:var(--container-max); margin:18px auto; padding:12px; }
+.page-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.page-head h1 { margin:0; font-size:20px; }
+.input, .select, textarea { padding:8px; border:1px solid var(--border); border-radius:8px; width:100%; box-sizing:border-box; }
+.btn { padding:8px 12px; border-radius:8px; border:0; cursor:pointer; background:var(--card); }
+.btn.primary { background:var(--primary); color:#fff; }
+.btn.ghost { background:transparent; border:1px solid var(--border); }
+.btn.danger { background:var(--danger); color:#fff; }
+.muted { color:var(--muted); }
+.small { font-size:12px; }
+.row-actions { display:flex; gap:6px; align-items:center; }
+.table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.table thead { background:#fafafa; }
+.table th, .table td { padding:10px; text-align:left; border-bottom:1px solid var(--border); font-size:14px; }
+.td-center { text-align:center; padding:18px; }
+.badge { padding:6px 8px; border-radius:8px; font-weight:600; font-size:12px; }
+.badge.success { background:rgba(10,123,10,0.12); color:var(--success); }
+.badge.danger { background:rgba(179,42,42,0.08); color:var(--danger); }
+.badge.warn { background:rgba(179,106,0,0.08); color:var(--warn); }
+.pager { display:flex; justify-content:space-between; align-items:center; margin-top:12px; }
+.pager-controls { display:flex; gap:8px; align-items:center; }
+@media (max-width:720px){
+  .table thead { display:none; }
+  .table, .table tbody, .table tr, .table td { display:block; width:100%; }
+  .table tr { margin-bottom:12px; border:1px solid var(--border); border-radius:8px; padding:8px; }
+  .table td { border:0; padding:6px 8px; }
+}

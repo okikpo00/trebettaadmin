@@ -1,0 +1,35 @@
+/* src/css/UserView.css */
+.container { max-width:1100px; margin:20px auto; padding:0 16px; }
+.userview-page .top-row { display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap; }
+.card { background:#fff; border-radius:12px; padding:14px; box-shadow:0 8px 30px rgba(0,0,0,0.04); }
+
+/* profile card */
+.profile-card { display:flex; gap:14px; align-items:center; flex:1; padding:16px; }
+.avatar { width:72px; height:72px; border-radius:50%; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:28px; color:#555; }
+.profile-body h2 { margin:0 0 6px 0; font-size:1.2rem; }
+.profile-actions { display:flex; gap:8px; margin-left:auto; align-items:center; }
+
+/* wallet */
+.wallet-card { width:260px; padding:18px; display:flex; flex-direction:column; gap:8px; }
+.wallet-title { font-weight:600; color:#444; }
+.wallet-balance { font-size:1.4rem; font-weight:700; color:var(--accent); }
+.wallet-meta { color:var(--muted); }
+
+/* content grid */
+.content-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:8px; }
+.kyc-block img, .kyc-block a img { max-width:120px; border-radius:6px; margin-right:8px; border:1px solid #eee; }
+.kv { display:flex; gap:6px; align-items:center; }
+
+/* transactions / audit smaller table */
+.table.small { width:100%; border-collapse:collapse; }
+.table.small th, .table.small td { padding:8px; text-align:left; border-bottom:1px solid #f3f6f9; font-size:0.9rem; }
+.audit-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.audit-list li { border-left:3px solid #eee; padding-left:8px; }
+
+/* responsive */
+@media (max-width:900px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .wallet-card { width:100%; }
+  .profile-card { align-items:flex-start; }
+}
+

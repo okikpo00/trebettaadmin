@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html, #root {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: #000;
+}
+
+/* Dark mode ready variables */
+:root {
+  --bg-color: white;
+  --text-color: #000;
+  --highlight-color: #800020; /* oxblood */
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --highlight-color: #ff4d4d;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

@@ -1,0 +1,115 @@
+/* KYC PAGE – Trebetta Admin Style */
+
+/* Reuse main admin layout */
+@import "./Deposits.css";
+
+/* Page Head */
+.page-head h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Filters Row */
+.filters-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filters-row .input {
+  min-width: 260px;
+}
+
+.filters-row .btn.ghost {
+  border: 1px solid #ddd;
+}
+
+/* Table Styles (built on base admin style) */
+
+.table-wrap {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  overflow-x: auto;
+}
+
+.table th {
+  font-weight: 600;
+  background: #fafafa;
+  color: #444;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+/* KYC Status Badge */
+.badge.warn {
+  background: #fff7e6;
+  color: #b87000;
+}
+
+.badge.success {
+  background: #e7f7ec;
+  color: #16893a;
+}
+
+.badge.danger {
+  background: #ffe8e8;
+  color: #c53030;
+}
+
+/* Buttons */
+.btn.small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.btn.small.success {
+  background: #16893a;
+  color: #fff;
+}
+
+.btn.small.danger {
+  background: #c53030;
+  color: #fff;
+  margin-left: 6px;
+}
+
+.btn.small:hover {
+  opacity: 0.9;
+}
+
+/* Muted text */
+.muted {
+  color: #777;
+}
+
+.small.muted {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Center message */
+.td-center {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Responsive stack for smaller screens */
+@media (max-width: 768px) {
+  .filters-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table th,
+  .table td {
+    white-space: nowrap;
+  }
+}

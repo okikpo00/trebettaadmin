@@ -1,0 +1,42 @@
+.sidebar {
+  width: 220px;
+  background: #010535;
+  color: #fff;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+}
+
+.sidebar.closed {
+  width: 60px;
+}
+
+.sidebar .toggle-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  padding: 15px;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar nav ul li a:hover {
+  background: #34495e;
+}

@@ -1,0 +1,175 @@
+/* src/css/Settings.css */
+
+.settings-page {
+  padding: 20px;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.settings-header .muted {
+  margin-top: 4px;
+}
+
+/* Tabs */
+.settings-tabs {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.settings-tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 999px 999px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.settings-tab.active {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  border-bottom-color: #ffffff;
+}
+
+/* Content wrapper */
+.settings-content {
+  margin-top: 4px;
+}
+
+/* Grid */
+.settings-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.settings-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.settings-card.full {
+  grid-column: 1 / -1;
+}
+
+.settings-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Fields */
+.settings-field-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.field-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.field-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Form rows */
+.form-row {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row label {
+  font-size: 13px;
+  color: #374151;
+}
+
+/* Actions */
+.settings-actions-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings-actions-row .btn + .btn {
+  margin-left: 8px;
+}
+
+/* Toggle */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle.on {
+  background: #7c0a02;
+}
+
+.toggle-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.toggle.on .toggle-thumb {
+  transform: translateX(18px);
+}
+
+/* Tiny */
+.small-table th,
+.small-table td {
+  font-size: 13px;
+}
+
+.badge.current-badge {
+  margin-left: 8px;
+  background: #7c0a02;
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+/* Tiny button */
+.tiny-btn {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}

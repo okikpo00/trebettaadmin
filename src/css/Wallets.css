@@ -1,0 +1,52 @@
+/* Wallets & WalletView styles - modern card look */
+.container { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+.admin-page .page-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.page-head h1 { margin:0; font-size:20px; color:#2a2222; }
+.head-right { display:flex; gap:8px; align-items:center; }
+
+/* Filters */
+.filters-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px; }
+.filter-left { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.input, .select { padding:8px 10px; border-radius:8px; border:1px solid #e6e5e5; min-width:180px; }
+
+/* Table look clean */
+.table-wrap { background:white; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.04); overflow:hidden; }
+.cards-table, .table { width:100%; border-collapse:collapse; }
+.cards-table thead th { background:#faf7f7; padding:12px 14px; text-align:left; font-weight:600; color:#5b4b4b; }
+.cards-table tbody td { padding:12px 14px; border-bottom:1px solid #f1efef; vertical-align:middle; }
+
+/* badges and small */
+.badge { display:inline-block; padding:6px 8px; border-radius:999px; font-weight:600; font-size:12px; }
+.badge.success { background:#e6fbf0; color:#0a8a4a; }
+.badge.danger { background:#ffe9e9; color:#b40303; }
+
+/* actions */
+.row-actions { display:flex; gap:8px; justify-content:flex-end; }
+.action { background:transparent; border:1px solid transparent; padding:6px 10px; border-radius:8px; cursor:pointer; }
+.action:hover { transform:translateY(-1px); }
+.action.warn { background:#fff7f0; border:1px solid #ffd8c2; }
+
+/* wallet summary */
+.card { background:white; border-radius:10px; padding:14px; box-shadow:0 6px 18px rgba(0,0,0,0.04); margin-bottom:16px; }
+.wallet-summary { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.wallet-summary .big-amount { font-size:28px; font-weight:700; color:#1f2937; }
+.wallet-summary .wallet-actions { display:flex; gap:8px; margin-top:8px; }
+
+/* modal overlay */
+.modal-overlay { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(8,8,8,0.45); z-index:2000; }
+.modal-card { background:white; border-radius:12px; padding:18px; width:520px; max-width:92%; box-shadow:0 8px 30px rgba(0,0,0,0.2); }
+.modal-card.small { width:420px; }
+.modal-card.lg { width:820px; }
+
+/* modal actions */
+.modal-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:12px; }
+.btn { padding:8px 12px; border-radius:8px; border:none; cursor:pointer; background:#6b1b1b; color:white; }
+.btn.ghost { background:transparent; border:1px solid #ddd; color:#222; }
+.btn.warn { background:#ff6b3d; }
+
+/* responsive */
+@media (max-width:880px) {
+  .filters-row { flex-direction:column; align-items:flex-start; gap:10px; }
+  .row-actions { justify-content:flex-start; }
+  .wallet-summary { flex-direction:column; align-items:flex-start; }
+}

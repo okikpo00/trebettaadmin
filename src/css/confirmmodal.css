@@ -1,0 +1,75 @@
+/* overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* card */
+.modal-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: fadeInScale 0.25s ease;
+}
+
+@keyframes fadeInScale {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: #222;
+}
+
+.modal-message {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* actions */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-actions .btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.modal-actions .btn.cancel {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.modal-actions .btn.cancel:hover {
+  background: #d4d4d4;
+}
+
+.modal-actions .btn.confirm {
+  background: #8b0000; /* oxblood to match Trebetta branding */
+  color: #fff;
+}
+
+.modal-actions .btn.confirm:hover {
+  background: #a20d0d;
+}

@@ -1,0 +1,13 @@
+/* src/css/TransactionModal.css - modal style used by transaction and wallet modals */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:1000;
+}
+.modal-card { background:#fff; padding:18px; border-radius:10px; width:720px; max-width:95%; box-shadow:0 6px 20px rgba(0,0,0,0.12); }
+.modal-card.small { width:520px; max-width:90%; }
+.modal-title { margin:0 0 8px 0; font-size:18px; }
+.modal-body { margin:10px 0; display:flex; flex-direction:column; gap:8px; }
+.modal-body label { font-size:13px; color:#374151; }
+.modal-body input, .modal-body select, .modal-body textarea { padding:8px 10px; border-radius:8px; border:1px solid #e5e7eb; }
+.modal-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:12px; }
+.btn.cancel { background:transparent; border:1px solid #e5e7eb; color:#111827; }
+.btn.confirm { background:#8B0000; color:#fff; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; }

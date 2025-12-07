@@ -1,0 +1,60 @@
+/* src/css/AuditLogs.css */
+
+.audit-page {
+  padding: 20px;
+}
+
+.audit-header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.audit-header p {
+  margin-top: 4px;
+}
+
+.audit-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.audit-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  transition: 0.2s;
+}
+
+.audit-item:hover {
+  background: #f8f8f8;
+  border-color: #cfcfcf;
+}
+
+.audit-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #7c0a02; /* Oxblood */
+}
+
+.audit-meta {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #777;
+}
+
+.audit-date {
+  font-size: 13px;
+  color: #333;
+}
+
+.loading,
+.empty {
+  margin-top: 40px;
+  text-align: center;
+  color: #777;
+}
