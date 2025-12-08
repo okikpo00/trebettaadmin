@@ -8,7 +8,17 @@ const api = axios.create({
 // attach token automatically
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token"); // where you stored admin token
+    const token = localStorage.getItem("admin_token");
+const sessionId = localStorage.getItem("admin_session_id");
+
+if (token) {
+  config.headers.Authorization = `Bearer ${token}`;
+}
+
+if (sessionId) {
+  config.headers["x-admin-session-id"] = sessionId;
+}
+ // where you stored admin token
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
