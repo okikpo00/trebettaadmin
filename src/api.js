@@ -1,27 +1,24 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.trebetta.com/api", // backend base URL
-  withCredentials: true, // allow cookies if needed later
+  baseURL: "https://api.trebetta.com/api",
+  withCredentials: true,
 });
 
 // attach token automatically
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("admin_token");
-const sessionId = localStorage.getItem("admin_session_id");
+    const token = localStorage.getItem("admin_token"); 
+    const sessionId = localStorage.getItem("admin_session_id");
 
-if (token) {
-  config.headers.Authorization = `Bearer ${token}`;
-}
-
-if (sessionId) {
-  config.headers["x-admin-session-id"] = sessionId;
-}
- // where you stored admin token
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+
+    if (sessionId) {
+      config.headers["x-admin-session-id"] = sessionId;
+    }
+
     return config;
   },
   (error) => Promise.reject(error)
@@ -38,5 +35,4 @@ export const reverseTransaction = (id, body) => api.post(`/admin/transactions/${
 export const getWalletByUserId = (userId) => api.get(`/admin/wallets/user/${userId}`);
 export const adjustWallet = (userId, body) => api.post(`/admin/wallets/user/${userId}/adjust`, body);
 
-export default api; // keep default export for legacy imports
-
+export default api;
