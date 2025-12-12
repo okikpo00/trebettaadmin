@@ -17,6 +17,8 @@ import Wallets from "./pages/Wallets";
 import WalletView from "./pages/WalletView";
 import Kyc from "./pages/Kyc";
 import Deposits from "./pages/Deposits";
+import PendingDeposits from "./pages/PendingDeposits";
+import ExpireDeposits from "./pages/ExpireDeposits";
 import Withdrawals from "./pages/Withdrawals";
 import WinnerTicker from "./pages/WinnerTicker";
 import Billboards from "./pages/Billboards";
@@ -54,6 +56,9 @@ function App() {
 
 <Route path="kyc" element={<Kyc />} />
 <Route path="deposits" element={<Deposits />} />
+<Route path="deposits_pending" element={<PendingDeposits />} />
+<Route path="deposits_expire" element={<ExpireDeposits />} />
+
 
 <Route path="withdrawals" element={<Withdrawals />} />
 

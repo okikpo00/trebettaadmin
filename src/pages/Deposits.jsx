@@ -1,9 +1,7 @@
 // src/pages/Deposits.jsx
 import React, { useEffect, useState } from "react";
 import api from "../api";
-import DepositFormModal from "../components/DepositFormModal";
 import Pagination from "../components/Pagination";
-import NotificationBell from "../components/NotificationBell";
 import "../css/Deposits.css";
 
 export default function Deposits() {
@@ -16,7 +14,18 @@ export default function Deposits() {
   const [status, setStatus] = useState("");
   const [provider, setProvider] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showManual, setShowManual] = useState(false);
+
+  // Ensure session headers
+  useEffect(() => {
+    const sessionId = localStorage.getItem("admin_session_id");
+    const token = localStorage.getItem("admin_token");
+    if (token) {
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    }
+    if (sessionId) {
+      api.defaults.headers.common["x-admin-session-id"] = sessionId;
+    }
+  }, []);
 
   const buildQueryParams = () => {
     const params = {
@@ -29,10 +38,8 @@ export default function Deposits() {
     if (search.trim()) {
       const raw = search.trim();
       if (/^\d+$/.test(raw)) {
-        // numeric → treat as user_id
         params.user_id = raw;
       } else {
-        // non-numeric → treat as reference
         params.reference = raw;
       }
     }
@@ -40,7 +47,7 @@ export default function Deposits() {
     return params;
   };
 
-  async function fetchData(p = 1) {
+  const fetchData = async (p = 1) => {
     setLoading(true);
     try {
       const params = buildQueryParams();
@@ -48,30 +55,29 @@ export default function Deposits() {
 
       const res = await api.get("/admin/deposits", { params });
 
-      setItems(res.data.data || []);
-      setTotal(res.data.total || 0);
+      const rows = res.data?.data ?? [];
+      const t = res.data?.total ?? 0;
+
+      setItems(rows);
+      setTotal(t);
     } catch (err) {
       console.error("deposit list error:", err);
       alert(err.response?.data?.message || "Failed to load deposits");
     } finally {
       setLoading(false);
     }
-  }
+  };
 
-  // refetch when filters change
   useEffect(() => {
     setPage(1);
     fetchData(1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, provider]);
 
-  // refetch when page changes
   useEffect(() => {
     fetchData(page);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
-  const handleReset = () => {
+  const resetFilters = () => {
     setSearch("");
     setStatus("");
     setProvider("");
@@ -82,15 +88,15 @@ export default function Deposits() {
   return (
     <div className="admin-page container">
       <div className="page-head">
-        <h1>Deposits</h1>
+        <h1>Completed Deposits</h1>
         <div className="head-right">
-          <NotificationBell />
-          <button className="btn primary" onClick={() => setShowManual(true)}>
-            Manual Deposit
-          </button>
+          <a href="/dashboard/deposits/pending" className="btn primary">
+            Pending Deposits →
+          </a>
         </div>
       </div>
 
+      {/* Filters */}
       <div className="filters-row">
         <div className="filter-left">
           <input
@@ -103,39 +109,34 @@ export default function Deposits() {
           <select
             className="select"
             value={status}
-            onChange={(e) => {
-              setStatus(e.target.value);
-              setPage(1);
-            }}
+            onChange={(e) => setStatus(e.target.value)}
           >
             <option value="">All status</option>
             <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
             <option value="failed">Failed</option>
           </select>
 
           <select
             className="select"
             value={provider}
-            onChange={(e) => {
-              setProvider(e.target.value);
-              setPage(1);
-            }}
+            onChange={(e) => setProvider(e.target.value)}
           >
             <option value="">All providers</option>
+            <option value="Manual">Manual</option>
+            <option value="AdminCredit">Admin Credit</option>
             <option value="Flutterwave">Flutterwave</option>
             <option value="Paystack">Paystack</option>
-            <option value="Manual">Manual</option>
           </select>
         </div>
 
         <div className="filter-right">
-          <button className="btn ghost" onClick={handleReset}>
+          <button className="btn ghost" onClick={resetFilters}>
             Reset
           </button>
         </div>
       </div>
 
+      {/* Table */}
       <div className="table-wrap">
         <table className="table">
           <thead>
@@ -161,33 +162,36 @@ export default function Deposits() {
             ) : items.length === 0 ? (
               <tr>
                 <td colSpan="8" className="td-center">
-                  No deposits found
+                  No deposit records found.
                 </td>
               </tr>
             ) : (
               items.map((d) => (
                 <tr key={d.id}>
                   <td>{d.id}</td>
-                  <td>{d.username || "-"}</td>
+                  <td>
+                    <div>{d.username || "-"}</div>
+                    <div className="muted tiny">{d.user_id}</div>
+                  </td>
                   <td>₦{Number(d.amount).toLocaleString()}</td>
                   <td>{d.provider || "-"}</td>
                   <td>{d.type}</td>
                   <td className="muted small">{d.reference}</td>
+
                   <td>
                     <span
                       className={`badge ${
                         d.status === "completed"
                           ? "success"
-                          : d.status === "pending"
-                          ? "warn"
                           : d.status === "failed"
                           ? "danger"
-                          : ""
+                          : "warn"
                       }`}
                     >
                       {d.status}
                     </span>
                   </td>
+
                   <td className="muted small">
                     {new Date(d.created_at).toLocaleString()}
                   </td>
@@ -198,16 +202,7 @@ export default function Deposits() {
         </table>
       </div>
 
-      <Pagination page={page} setPage={setPage} limit={limit} total={total} />
-
-      {showManual && (
-        <DepositFormModal
-          onClose={() => {
-            setShowManual(false);
-            fetchData(page);
-          }}
-        />
-      )}
+      <Pagination page={page} setPage={setPage} total={total} limit={limit} />
     </div>
   );
 }

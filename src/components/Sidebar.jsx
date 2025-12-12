@@ -17,6 +17,8 @@ export default function Sidebar({ isOpen, toggle }) {
           <li><Link to="/dashboard/wallets">Wallets</Link></li>
           <li><Link to="/dashboard/kyc">Kyc</Link></li>
           <li><Link to="/dashboard/deposits">Deposits</Link></li>
+            <li><Link to="/dashboard/deposits_pending">PendingDeposits</Link></li>
+              <li><Link to="/dashboard/deposits_expire">ExpireDeposits</Link></li>
           <li><Link to="/dashboard/withdrawals">Withdrawals</Link></li>
           <li><Link to="/dashboard/notifications">Notifications</Link></li>
            <li><Link to="/dashboard/audit">AuditLogs</Link></li>
