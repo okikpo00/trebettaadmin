@@ -1,0 +1,62 @@
+.kyc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.kyc-modal {
+  width: 95%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-title {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.kyc-section {
+  margin-bottom: 20px;
+}
+
+.kyc-images {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.kyc-img-box img {
+  width: 180px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.kyc-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
